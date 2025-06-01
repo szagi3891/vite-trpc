@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import { observer } from "mobx-react-lite";
 import React from "react";
-// import { trpcClient } from "src/server/trpc/trpcClient";
+import { trpcClient } from "../server/trpc/trpcClient";
 
 
 class State {
@@ -18,16 +18,18 @@ class State {
 export const App = observer(() => {
     const [ state ] = React.useState(() => new State());
 
-    // React.useEffect(() => {
+    React.useEffect(() => {
 
-    //     (async () => {
-    //         const response = await trpcClient.trpc.cosRouter.runImage.mutate({
-    //             where: 'ssh',
-    //             imageId: '443322',
-    //             imageName: 'name...name'
-    //         });
-    //     })();
-    // });
+        (async () => {
+            const response = await trpcClient.trpc.cosRouter.runImage.mutate({
+                where: 'ssh',
+                imageId: '443322',
+                imageName: 'name...name'
+            });
+
+            console.info('odpowiedź z servera', response);
+        })();
+    });
 
     return (
         <div className="App">

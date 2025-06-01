@@ -1,7 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { builtinModules } from "module";
-
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -27,7 +26,7 @@ export default defineConfig((buildConfig) => ({
     },
     alias: {
         resolve: {
-            'src': path.resolve(__dirname, '.'),
+            'src': path.join(__dirname, '.'),
         }
     }
 }));

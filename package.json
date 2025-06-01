@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "type": "module",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "ts-check": "tsc -p ./tsconfig.json",
@@ -10,7 +11,7 @@
         "app-build-clear": "rm -Rf src/dist",
         "app-build-client": "pnpx vite build --config src/vite.config.ts",
         "app-build-server": "pnpx @vercel/ncc build src/index_prod.ts -o src/dist",
-        "app-build": "pnpm run app2-build-clear && pnpm run app-build-client && pnpm run app-build-server",
+        "app-build": "pnpm run app-build-clear && pnpm run app-build-client && pnpm run app-build-server",
         "app-start": "cd src/dist && DEV_MODE=true SQL_MIGRATIONS=/Users/grzegorz/Desktop/notatki/solidjs-surrealdb/src/server/db/migrations node index.js"
     },
     "keywords": [],
@@ -23,6 +24,7 @@
         "@types/express": "^5.0.2",
         "@types/react": "^19.1.6",
         "@types/react-dom": "^19.1.5",
+        "@vercel/ncc": "^0.38.3",
         "@vitejs/plugin-react": "^4.5.0",
         "express": "^5.1.0",
         "mobx": "^6.13.7",
@@ -31,6 +33,7 @@
         "react-dom": "^19.1.0",
         "superjson": "^2.2.2",
         "tsx": "^4.19.4",
+        "typescript": "^5.8.3",
         "vite": "^6.3.5",
         "vite-express": "^0.21.1",
         "zod": "^3.25.46"
